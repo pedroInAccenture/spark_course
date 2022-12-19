@@ -20,7 +20,7 @@ object ProcessCSV extends Serializable{
     //Give it a Structure and select only 4 columns
     case class SurveyRecord(Age: Int, Gender: String, Country: String, state: String)
 
-    val colsRDD = rdd.map(line => {
+    val colsRDD: RDD[SurveyRecord] = rdd.map(line => {
       val cols = line.split(",").map(_.trim)
       SurveyRecord(cols(1).toInt, cols(2), cols(3), cols(4))
     })
@@ -33,5 +33,7 @@ object ProcessCSV extends Serializable{
     val countRDD = kvRDD.reduceByKey((v1, v2) => v1 + v2)
 
     colsRDD.foreach(println)
+
+    Thread.sleep(10000000)
   }
 }
