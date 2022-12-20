@@ -21,5 +21,6 @@ object CreateDF {
 
     dfFromRDD1.printSchema()
 
+    dfFromRDD1.show(10)
   }
 }
