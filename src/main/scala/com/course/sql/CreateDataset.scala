@@ -25,14 +25,20 @@ object CreateDataset {
     surveyDS.printSchema()
 
     //Type safe Filter
-    val filteredDS = surveyDS.filter(r => r.Age < 40)
+    val filteredDS = surveyDS.filter(row => row.Age < 40)
+
     //Runtime Filter
     val filteredDF = surveyDS.filter("Age  < 40")
 
     //Type safe GroupBy
     val countDS = filteredDS.groupByKey(r => r.Country).count()
+
     //Runtime GroupBy
     val countDF = filteredDF.groupBy("Country").count()
 
+    filteredDS.write
+      .mode("overwrite")
+      .partitionBy("Country")
+      .parquet("src/main/resources/data/output/countriesPart.parquet")
   }
 }

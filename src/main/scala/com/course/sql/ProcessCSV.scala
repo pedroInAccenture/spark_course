@@ -12,6 +12,7 @@ object ProcessCSV {
       .getOrCreate()
 
     val dfData = spark.read.csv("src/main/resources/data/input/sample.csv")
+//    spark.table("bd.table")
 //    dfData.show()
 
     val dfFiltered = dfData.select(
@@ -30,8 +31,15 @@ object ProcessCSV {
 
     dfGrouped.show()
 
-    dfGrouped.write
-      .parquet("src/main/resources/data/output/countries.parquet")
+//    dfGrouped
+//      .repartition(1)
+//    .write
+////      .mode("append")
+//      .mode("overwrite")
+//      .parquet("src/main/resources/data/output/countries2.parquet")
+
+//    dfGrouped.write.insertInto("database.tabla")
+//    dfGrouped.write.format("avro").save("src/main/resources/data/output/countriesAvro.avro")
 
   }
 }
