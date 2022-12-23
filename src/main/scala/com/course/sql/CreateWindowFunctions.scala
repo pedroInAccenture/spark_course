@@ -1,5 +1,6 @@
 package com.course.sql
 
+import com.course.common.Operation
 import org.apache.spark.sql.{SparkSession, functions}
 import org.apache.spark.sql.expressions.Window
 import org.apache.spark.sql.functions.{asc, avg, col, count, dense_rank, desc, max, min, rank, row_number, sum}
@@ -7,6 +8,7 @@ import org.apache.spark.sql.functions.{asc, avg, col, count, dense_rank, desc, m
 object CreateWindowFunctions {
 
   def main(args: Array[String]): Unit = {
+
     val spark: SparkSession = SparkSession.builder()
       .master("local[1]")
       .appName("Spark course")
@@ -24,19 +26,21 @@ object CreateWindowFunctions {
     /////////////////////
     //ranking functions
     //row_number
-//    val windowSpec = Window.partitionBy("department").orderBy("salary")
-//    df.withColumn("row_number", row_number.over(windowSpec))
-//      .show()
-//
-//    //rank
-//    df.withColumn("rank", rank().over(windowSpec))
-//      .show()
-//
-//    //dense_rank
-//    df.withColumn("dense_rank", dense_rank().over(windowSpec))
-//      .show()
+    val windowSpec = Window.partitionBy("department").orderBy("salary")
+    df.withColumn("row_number", row_number.over(windowSpec))
+      .show()
 
+    //rank
+    df.withColumn("rank", rank().over(windowSpec))
+      .show()
 
+    //dense_rank
+    df.withColumn("dense_rank", dense_rank().over(windowSpec))
+      .show()
+
+//    val dfWithCol = Operation.addColumnRowNumber(df)
+//    print(">>>>>>")
+//    print(dfWithCol.isEmpty)
     /////////////////////
     //aggregate functions
     val windowSpecAgg = Window.partitionBy("department").orderBy("salary")

@@ -14,7 +14,10 @@
 - Formato de tabla (apache iceberg, hudi, deltalake y hive)
 - Formato de archivo (avro, parquet)
 - Funciones de ventana
-- Joins (inner, left, right, full)
+- Joins (inner, left, right, full ....)
+- Broadcast
+- "Union" (unionall de sql) y "union all"
+- Catalyst-optimizer
 - Copilar el projecto, crear el jar
 - spark-submit
 - Pruebas unitarias

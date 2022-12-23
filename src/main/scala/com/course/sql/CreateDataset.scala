@@ -1,5 +1,6 @@
 package com.course.sql
 
+import org.apache.spark.sql.functions.{col, lit, when}
 import org.apache.spark.sql.{Dataset, Row, SparkSession}
 
 object CreateDataset {
@@ -35,10 +36,12 @@ object CreateDataset {
 
     //Runtime GroupBy
     val countDF = filteredDF.groupBy("Country").count()
+    countDF.withColumn("pass", when(col("count") > 1, true).otherwise(false))
+      .show()
 
-    filteredDS.write
-      .mode("overwrite")
-      .partitionBy("Country")
-      .parquet("src/main/resources/data/output/countriesPart.parquet")
+//    filteredDS.write
+//      .mode("overwrite")
+//      .partitionBy("Country")
+//      .parquet("src/main/resources/data/output/countriesParq2")
   }
 }
