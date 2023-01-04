@@ -1,0 +1,4 @@
+Spark extiende del modelo “MapReduce” de Hadoop, implementando eficientemente los cálculos en la RAM y el procesamiento de grandes volúmenes de información.
+Velocidad: Spark permite ejecutar aplicaciones “en memoria” 100 veces más rápido que el modelo MapReduce y 10 veces más rápido ejecutando en “disco”
+Altamente accesible: Spark tiene APIs incorporadas para SQL, Scala, Python y Java.
+Componentes: Spark no solo mejora MapReduce, también tiene componentes especializados para varias cargas de trabajo, como: Spark SQL, Spark Streaming, MLlib, GraphX
