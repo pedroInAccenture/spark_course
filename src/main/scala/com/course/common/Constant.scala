@@ -1,6 +1,4 @@
-package com.course.common.Constants
-
-import com.typesafe.config.ConfigFactory
+package com.course.common
 
 object Constant {
 //  final val appConfig = ConfigFactory.parseFile("appConfigFileName")

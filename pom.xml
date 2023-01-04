@@ -6,12 +6,12 @@
 
     <groupId>org.course.spark</groupId>
     <artifactId>course</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.8-SNAPSHOT</version>
 
     <properties>
         <spark.version>2.4.8</spark.version>
         <scala.version.major>2.12</scala.version.major>
-        <scala.version.minor>8</scala.version.minor>
+        <scala.version.minor>10</scala.version.minor>
         <scala.version>${scala.version.major}.${scala.version.minor}</scala.version>
     </properties>
 

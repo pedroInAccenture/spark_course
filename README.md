@@ -18,7 +18,9 @@
 - Broadcast
 - "Union" (unionall de sql) y "union all"
 - Catalyst-optimizer
-- Copilar el projecto, crear el jar
-- spark-submit
 - Pruebas unitarias
+- Copilar el proyecto, crear el jar
+- spark-submit
+  - spark-submit --class com.course.ExecuteApp course-1.0.8-SNAPSHOT-jar-with-dependencies.jar classes/data/input/salaries.csv output/parquetFile.parquet
+
 
